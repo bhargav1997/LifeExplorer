@@ -1,0 +1,123 @@
+﻿@model WagWander.Models.ViewModels.DetailsMediaItem
+
+@{
+    ViewBag.Title = "Media Item Details";
+}
+
+<h2>@Model.SelectedMediaItem.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Title
+        </dt>
+        <dd>
+            @Model.SelectedMediaItem.Title
+        </dd>
+        <dt>
+            Type
+        </dt>
+        <dd>
+            @Model.SelectedMediaItem.Type
+        </dd>
+        <dt>
+            Description
+        </dt>
+        <dd>
+            @Model.SelectedMediaItem.Description
+        </dd>
+        <dt>
+            Genre
+        </dt>
+        <dd>
+            @Model.SelectedMediaItem.Genre
+        </dd>
+        <dt>
+            Release Date
+        </dt>
+        <dd>
+            @Model.SelectedMediaItem.ReleaseDate.ToShortDateString()
+        </dd>
+    </dl>
+</div>
+
+<h4>Reviews</h4>
+<table class="table">
+    <tr>
+        <th>
+            Username
+        </th>
+        <th>
+            Rating
+        </th>
+        <th>
+            Review
+        </th>
+        <th>
+            Status
+        </th>
+    </tr>
+
+    @foreach (var item in Model.RelatedUserLists)
+    {
+        <tr>
+            <td>
+                <a class="text-decoration-none" href="/user/details/@item.UserID"> @item.UserName </a>
+            </td>
+            <td>
+                @item.Rating
+            </td>
+            <td>
+                @item.Review
+            </td>
+            <td>
+                @item.Status
+            </td>
+        </tr>
+    }
+
+</table>
+
+<h4>Users with this media Item on the list</h4>
+<table class="table">
+    <tr>
+        <th>
+            Username
+        </th>
+        <th>
+            Favorite Genre
+        </th>
+        <th>
+            Location
+        </th>
+        <th>
+            JoinDate
+        </th>
+    </tr>
+
+    @foreach (var item in Model.RelatedUsers)
+    {
+        <tr>
+            <td>
+                <a class="text-decoration-none" href="/user/details/@item.UserID"> @item.UserName </a>
+            </td>
+            <td>
+                @item.FavoriteGenre
+            </td>
+            <td>
+                @item.Location
+            </td>
+            <td>
+                @item.JoinDate.ToShortDateString()
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    <a class="btn btn-primary" href="/MediaItem/Edit/@Model.SelectedMediaItem.MediaItemID">Edit Media Item</a>
+    <a class="btn btn-danger" href="/MediaItem/DeleteConfirm/@Model.SelectedMediaItem.MediaItemID">Delete Media Item</a>
+    <a class="btn btn-dark" href="/MediaItem/List">Back to List</a>
+</p>

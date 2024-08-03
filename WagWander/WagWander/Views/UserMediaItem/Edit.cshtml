@@ -1,0 +1,46 @@
+﻿@model WagWander.Models.UserMediaItemDto
+
+@{
+    ViewBag.Title = "Edit User Media Item";
+}
+
+<h2>@Model.UserName's List</h2>
+
+<form action="/UserMediaItem/update/@Model.UserMediaItemID" method="post">
+    <input type="hidden" name="UserMediaItemID" value="@Model.UserMediaItemID" />
+    <input type="hidden" name="UserID" value="@Model.UserID" />
+
+    <div class="form-group">
+        <label for="MediaItemID">Media Item</label>
+        <select name="MediaItemID" class="form-control" required>
+            @foreach (var mediaItem in ViewBag.MediaItems as IEnumerable<FantasyForge_N01543896.Models.MediaItem>)
+            {
+                <option value="@mediaItem.MediaItemID" @(mediaItem.MediaItemID == Model.MediaItemID ? "selected" : "")>@mediaItem.Title</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Status">Status</label>
+        <select name="Status" class="form-control" required>
+            <option value="Planning">Planning</option>
+            <option value="Completed">Completed</option>
+            <option value="Watching">Watching</option>
+            <option value="Dropped">Dropped</option>
+            <option value="Playing">Playing</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Rating">Rating</label>
+        <input type="number" name="Rating" class="form-control" min="1" max="10" value="@Model.Rating" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Review">Review</label>
+        <textarea name="Review" class="form-control" rows="5">@Model.Review</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/user/details/@Model.UserID" class="btn btn-default">Back to List</a>
+</form>

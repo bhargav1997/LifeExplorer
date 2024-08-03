@@ -1,0 +1,46 @@
+﻿@model WagWander.Models.UserMediaItem
+
+@{
+    ViewBag.Title = "Create User Media Item";
+}
+
+<h2>Add Media to your List</h2>
+
+<form action="/UserMediaItem/Create" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="UserID" value="@Model.UserID" />
+
+    <div class="form-group">
+        <label for="MediaItemID">Media Item</label>
+        <select name="MediaItemID" class="form-control" required>
+            @foreach (var mediaItem in ViewBag.MediaItems as IEnumerable<WagWander.Models.MediaItem>)
+            {
+                <option value="@mediaItem.MediaItemID">@mediaItem.Title</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Status">Status</label>
+        <select name="Status" class="form-control" required>
+            <option value="Planning">Planning</option>
+            <option value="Completed">Completed</option>
+            <option value="Watching">Watching</option>
+            <option value="Dropped">Dropped</option>
+            <option value="Playing">Playing</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Rating">Rating</label>
+        <input type="number" name="Rating" class="form-control" min="1" max="10" />
+    </div>
+
+    <div class="form-group">
+        <label for="Review">Review</label>
+        <textarea name="Review" class="form-control" rows="5"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+    <a href="/User/Details/@Model.UserID" class="btn btn-default">Back to List</a>
+</form>

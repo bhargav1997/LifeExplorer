@@ -32,8 +32,7 @@ namespace WagWander.Models
         public DbSet<Review> Reviews { get; set; }
 
         public DbSet<Pet> Pets { get; set; }
-        public DbSet<User> User { get; set; }
-
+        public DbSet<User> Users { get; set; }
         public DbSet<UserMediaItem> UserMediaItems { get; set; }
         public DbSet<Inquiry> Inquiries { get; set; }
 

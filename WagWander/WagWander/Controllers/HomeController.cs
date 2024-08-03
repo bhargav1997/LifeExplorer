@@ -15,6 +15,19 @@ namespace WagWander.Controllers
         {
             var locations = db.Locations.ToList();
 
+            List<MediaItem> MediaItems = db.MediaItems.ToList();
+            List<MediaItemDto> MediaItemDtos = new List<MediaItemDto>();
+
+            MediaItems.ForEach(m => MediaItemDtos.Add(new MediaItemDto()
+            {
+                MediaItemID = m.MediaItemID,
+                Title = m.Title,
+                Type = m.Type,
+                Description = m.Description,
+                ReleaseDate = m.ReleaseDate,
+                Genre = m.Genre,
+            }));
+
             var locationDtos = locations.Select(location => new LocationDto
             {
                 LocationId = location.LocationId,
@@ -28,7 +41,13 @@ namespace WagWander.Controllers
                 PicExtension = location.PicExtension,
             }).ToList();
 
-            return View(locationDtos);
+            var viewModel = new WagWanderModel
+            {
+                Locations = locationDtos,
+                MediaItems = MediaItemDtos
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult Media()

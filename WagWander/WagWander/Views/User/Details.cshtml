@@ -1,0 +1,88 @@
+﻿@model WagWander.Models.ViewModels.DetailsUser
+
+@{
+    ViewBag.Title = "User Details";
+}
+
+<h2>@Model.SelectedUser.UserName's Profile</h2>
+
+<div>
+    <hr />
+    <div class="col-md-6 col-sm-12">
+        @{
+            string imageurl = "/Content/Images/Users/default.jpg";
+            if (Model.SelectedUser.UserHasPic)
+            {
+                imageurl = "/Content/Images/Users/" + Model.SelectedUser.UserID + "." + Model.SelectedUser.PicExtension;
+            }
+        }
+        <div class="mb-2"><img style="display:block; max-width:100%;" alt="@Model.SelectedUser.UserName" src="@imageurl" /></div>
+        <div><p class="fw-bold">Bio:</p>
+             <p>@Model.SelectedUser.Bio</p></div>
+        <div>
+            <p class="fw-bold">Favorite Genre:</p>
+            <p>@Model.SelectedUser.FavoriteGenre</p>
+        </div>
+        <div>
+            <p class="fw-bold">JoinDate:</p><p>@Model.SelectedUser.JoinDate.ToShortDateString()</p>
+        </div>
+        <div><p class="fw-bold">Location:</p><p>@Model.SelectedUser.Location</p></div>
+
+    </div>
+    <hr />
+</div>
+
+<h4>@Model.SelectedUser.UserName's List</h4>
+<table class="table">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Rating
+        </th>
+        <th>
+            Type
+        </th>
+        <th>
+            Review
+        </th>
+    </tr>
+
+    @foreach (var item in Model.UserPersonalList)
+    {
+        <tr>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                @item.Status
+            </td>
+            <td>
+                @item.Rating
+            </td>
+            <td>
+                @item.Type
+            </td>
+            <td>
+                @item.Review
+            </td>
+            <td>
+                <a class="btn btn-primary" href="/usermediaitem/edit/@item.UserMediaItemID">Edit </a>
+            </td>
+            <td>
+                <a class="btn btn-danger" href="/usermediaitem/deleteconfirm/@item.UserMediaItemID">Delete </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    <a class="btn btn-primary" href="/UserMediaItem/New/@Model.SelectedUser.UserID">Add Media to the list</a>
+    <a class="btn btn-success" href="/User/Edit/@Model.SelectedUser.UserID">Edit Profile</a>
+    <a class="btn btn-danger" href="/User/DeleteConfirm/@Model.SelectedUser.UserID">Delete Profile</a>
+</p>

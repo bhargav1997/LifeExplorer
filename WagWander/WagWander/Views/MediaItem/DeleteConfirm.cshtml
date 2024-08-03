@@ -1,0 +1,21 @@
+﻿@model WagWander.Models.MediaItemDto
+
+@{
+    ViewBag.Title = "Delete Media Item";
+}
+
+<h2>Delete Media Item</h2>
+
+<h3>Are you sure you want to delete this Media Item?</h3>
+
+<a href="/MediatItem/List">Cancel</a>
+
+<h2>@Model.Title</h2>
+<div>Description: @Model.Description </div>
+<div>Type: @Model.Type</div>
+<div>Genre: @Model.Genre</div>
+<div>ReleaseDate: @Model.ReleaseDate.ToShortDateString()</div>
+
+<form action="/MediaItem/Delete/@Model.MediaItemID" method="POST">
+    <input type="submit" value="Confirm Delete" />
+</form>

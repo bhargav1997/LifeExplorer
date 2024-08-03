@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WagWander.Models.UserMediaItemDto>
+
+@{
+    ViewBag.Title = "User Media Items";
+}
+
+<h2>User list</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Rating</th>
+            <th>Type</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Status</td>
+                <td>@item.Rating</td>
+                <td>@item.Type</td>
+                <td>
+                    <a class="btn btn-info" href="/UserMediaItem/Details/@item.UserMediaItemID">Details</a>
+                    <a class="btn btn-primary" href="/UserMediaItem/Edit/@item.UserMediaItemID">Edit</a>
+                    <a class="btn btn-danger" href="/UserMediaItem/DeleteConfirm/@item.UserMediaItemID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

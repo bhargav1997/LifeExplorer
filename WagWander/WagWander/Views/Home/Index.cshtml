@@ -1,42 +1,75 @@
-﻿@model IEnumerable<WagWander.Models.LocationDto>
+﻿@model WagWander.Models.WagWanderModel
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Welcome";
 }
 
 <main class="container mt-5">
     <h2 class="text-center mb-4">@ViewBag.Title</h2>
 
-    <div class="row">
-        @foreach (var location in Model)
-        {
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card shadow-sm border-light">
-                    @{
-                        string imageurl = "/Content/Images/Locations/default.jpg";
-                        if (location.LocationHasPic)
-                        {
-                            imageurl = "/Content/Images/Locations/" + location.LocationId + "." + location.PicExtension;
+    <div class="locations-section">
+        <h2>Featured Locations</h2>
+        <div class="row">
+            @foreach (var location in Model.Locations)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow-sm border-light">
+                        @{
+                            string imageurl = "/Content/Images/Locations/default.jpg";
+                            if (location.LocationHasPic)
+                            {
+                                imageurl = "/Content/Images/Locations/" + location.LocationId + "." + location.PicExtension;
+                            }
                         }
-                    }
-                    <img class="card-img-top img-fluid" alt="@location.LocationName" src="@imageurl" />
-                    <div class="card-body">
-                        <h5 class="card-title">@location.LocationName</h5>
-                        <p class="card-text">@location.LocationDescription</p>
-                        <p class="card-text"><strong>Category:</strong> @location.Category</p>
-                        <p class="card-text"><strong>Address:</strong> @location.Address</p>
-                        <p class="card-text"><strong>Average Rating:</strong> @location.AverageRating</p>
-                        <div class="d-flex justify-content-between mt-3">
-                            <a href="@Url.Action("Edit", "Location", new { id = location.LocationId })" class="btn btn-warning">Edit Location</a>
-                            <a href="@Url.Action("Details", "Location", new { id = location.LocationId })" class="btn btn-info">Details</a>
-                            <form action="/Location/Delete" method="post" onsubmit="return confirm('Are you sure you want to delete this location?');">
-                                <input type="hidden" name="id" value="@location.LocationId" />
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
+                        <img class="card-img-top img-fluid" alt="@location.LocationName" src="@imageurl" />
+                        <div class="card-body">
+                            <h5 class="card-title">@location.LocationName</h5>
+                            <p class="card-text">@location.LocationDescription</p>
+                            <p class="card-text"><strong>Category:</strong> @location.Category</p>
+                            <p class="card-text"><strong>Address:</strong> @location.Address</p>
+                            <p class="card-text"><strong>Average Rating:</strong> @location.AverageRating</p>
+                            <div class="d-flex justify-content-between mt-3">
+                                <a href="@Url.Action("Edit", "Location", new { id = location.LocationId })" class="btn btn-warning">Edit Location</a>
+                                <a href="@Url.Action("Details", "Location", new { id = location.LocationId })" class="btn btn-info">Details</a>
+                                <form action="/Location/Delete" method="post" onsubmit="return confirm('Are you sure you want to delete this location?');">
+                                    <input type="hidden" name="id" value="@location.LocationId" />
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
+    </div>
+
+    <div class="media-items-section mt-4">
+        <h2>Featured Media Items</h2>
+        <div class="row">
+            @foreach (var mediaItem in Model.MediaItems)
+            {
+                <div class="col-md-4 d-flex align-items-stretch mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a class="text-decoration-none" href="/MediaItem/Details/@mediaItem.MediaItemID">@mediaItem.Title</a>
+                            </h5>
+                            <p class="card-text">
+                                <strong>Type:</strong> @mediaItem.Type
+                            </p>
+                            <p class="card-text">
+                                <strong>Description:</strong> @mediaItem.Description
+                            </p>
+                            <p class="card-text">
+                                <strong>Release Date:</strong> @mediaItem.ReleaseDate.ToShortDateString()
+                            </p>
+                            <p class="card-text">
+                                <strong>Genre:</strong> @mediaItem.Genre
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
     </div>
 </main>

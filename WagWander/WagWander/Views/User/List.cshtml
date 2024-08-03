@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WagWander.Models.UserDto>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>Users</h2>
+
+<p>
+    <a class="btn btn-success" href="/User/new/">Add</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+               <a class="text-decoration-none fw-bold" href="/User/Details/@item.UserID">@item.UserName</a>
+            </td>
+            <td>
+                <a class="btn btn-primary" href="/User/Edit/@item.UserID">Edit</a>
+                <a class="btn btn-info" href="/User/Details/@item.UserID">Details</a>
+                <a class="btn btn-danger" href="/User/DeleteConfirm/@item.UserID">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>

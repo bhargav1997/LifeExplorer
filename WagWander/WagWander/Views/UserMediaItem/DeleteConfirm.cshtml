@@ -1,0 +1,33 @@
+﻿@model WagWander.Models.UserMediaItemDto
+
+@{
+    ViewBag.Title = "Delete User Media Item";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Title</dt>
+        <dd>@Model.Title</dd>
+
+        <dt>Status</dt>
+        <dd>@Model.Status</dd>
+
+        <dt>Rating</dt>
+        <dd>@Model.Rating</dd>
+
+        <dt>Review</dt>
+        <dd>@Model.Review</dd>
+
+        <dt>Type</dt>
+        <dd>@Model.Type</dd>
+    </dl>
+</div>
+
+<form action="/UserMediaItem/Delete/@Model.UserMediaItemID" method="POST">
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a class="btn btn-default" href="/user/details/@Model.UserID">Back to List</a> 
+</form>

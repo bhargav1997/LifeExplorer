@@ -125,7 +125,6 @@ namespace WagWander.Controllers
             {
                 db.Reviews.Add(review);
                 db.SaveChanges();
-                return StatusCode(HttpStatusCode.OK);
             }
             catch (DbUpdateException ex)
             {

@@ -1,0 +1,44 @@
+﻿@model WagWander.Models.MediaItem
+
+@{
+    ViewBag.Title = "Create Media Item";
+}
+
+<h2>Add Media</h2>
+
+<form action="/MediaItem/Create" method="POST">
+    <div>
+        <label for="Title">Title:</label> 
+        <input class="form-control" type="text" name=Title />
+    </div>
+    <div>
+        <label for="Description">Description:</label> 
+        <textarea class="form-control" name="Description" rows="5" cols="50"> </textarea>
+    </div>
+    <div>
+        <fieldset>
+            <legend>Select Type</legend>
+            <input type="radio" name=Type value="Game" id="GameRadio" /> <label for="GameRadio">Game</label>
+            <input type="radio" name=Type value="Anime" id="AnimeRadio" /> <label for="AnimeRadio">Anime</label>
+            <input type="radio" name=Type value="Tv Show" id="ShowRadio" /> <label for="ShowRadio">Tv Show</label>
+            <input type="radio" name=Type value="Movie" id="MovieRadio" /> <label for="MovieRadio">Movie</label>
+        </fieldset>
+    </div>
+    
+    <div>
+        <label for="Genre">Genre:</label> 
+        <input class="form-control" type="text" name="Genre" />
+    </div>
+    <div>
+        <label for="ReleaseDate">ReleaseDate:</label> 
+        <input class="form-control" type="date" name="ReleaseDate" />
+    </div>
+    <div>
+        <input class=" btn btn-success mt-3" type="submit" value="Add Media Item" />
+
+    </div>
+</form>
+
+<div>
+    <a class="mt-3 btn btn-dark" href="/MediaItem/List/">Back to List</a>
+</div>

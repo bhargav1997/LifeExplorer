@@ -1,0 +1,33 @@
+﻿@model WagWander.Models.UserMediaItemDto
+
+@{
+    ViewBag.Title = "User Media Item Details";
+}
+
+<h2>@Model.Title Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Title</dt>
+        <dd>@Model.Title</dd>
+
+        <dt>Status</dt>
+        <dd>@Model.Status</dd>
+
+        <dt>Rating</dt>
+        <dd>@Model.Rating</dd>
+
+        <dt>Review</dt>
+        <dd>@Model.Review</dd>
+
+        <dt>Type</dt>
+        <dd>@Model.Type</dd>
+    </dl>
+</div>
+
+<p>
+    <a class="btn btn-primary" href="/UserMediaItem/Edit/@Model.UserMediaItemID">Edit</a>
+    <a class="btn btn-danger" href="/UserMediaItem/Delete/@Model.UserMediaItemID">Delete</a>
+    <a class="btn btn-default" href="/UserMediaItem/List">Back to List</a>
+</p>

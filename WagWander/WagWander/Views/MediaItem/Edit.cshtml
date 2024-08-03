@@ -1,0 +1,41 @@
+﻿@model WagWander.Models.MediaItemDto
+
+@{
+    ViewBag.Title = "Edit Media Item";
+}
+
+<h2>Update Media Item</h2>
+
+<form action="/MediaItem/Update/@Model.MediaItemID" method="POST">
+    <div style="display:none;">
+        @* Pass through the User ID *@
+        <input type="text" name="MediaItemID" value="@Model.MediaItemID" />
+    </div>
+    <div>
+        <label for="Title">Title:</label>
+        <input class="form-control" type="text" name="Title" value="@Model.Title" />
+    </div>
+    <div>
+        <label for="Type">Type:</label>
+        <input class="form-control" type="text" name="Type" value="@Model.Type" />
+    </div>
+    <div>
+        <label for="Description">Description:</label>
+        <textarea class="form-control"  name="Description" value="@Model.Description" rows="4" cols="40"> </textarea> 
+    </div>
+    <div>
+        <label for="Genre">Genre:</label>
+        <input class="form-control" type="text" name="Genre" value="@Model.Genre" />
+    </div>
+    <div style="display:none;">
+        @* Pass through the Release Date *@
+        <input type="datetime" name="ReleaseDate" value="@Model.ReleaseDate" />
+    </div>
+    <div>
+        <input class="btn btn-primary mt-3" type="submit" value="Update Media Item" />
+    </div>
+</form>
+
+<div>
+    <a class="btn btn-dark" href="/MediaItem/List">Back to list</a>
+</div>

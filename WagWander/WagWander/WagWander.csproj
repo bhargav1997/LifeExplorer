@@ -557,8 +557,14 @@
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\LocationDataController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MediaItemController.cs" />
+    <Compile Include="Controllers\MediaItemDataController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\ReviewDataController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserDataController.cs" />
+    <Compile Include="Controllers\UserMediaItemController.cs" />
+    <Compile Include="Controllers\UserMediaItemDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -582,6 +588,10 @@
     <Compile Include="Migrations\202408030445134_FantacyPawCare.Designer.cs">
       <DependentUpon>202408030445134_FantacyPawCare.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202408031245213_FantacyPawCare-1.cs" />
+    <Compile Include="Migrations\202408031245213_FantacyPawCare-1.Designer.cs">
+      <DependentUpon>202408031245213_FantacyPawCare-1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -596,6 +606,7 @@
     <Compile Include="Models\ViewModels\DetailsMediaItem.cs" />
     <Compile Include="Models\ViewModels\DetailsUser.cs" />
     <Compile Include="Models\ViewModels\DetailsUserMediaItem.cs" />
+    <Compile Include="Models\WagWanderModel.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -781,12 +792,29 @@
     <Content Include="Views\Location\List.cshtml" />
     <Content Include="Views\Location\LocationWithReviews.cshtml" />
     <Content Include="Views\Home\Media.cshtml" />
+    <Content Include="Views\MediaItem\DeleteConfirm.cshtml" />
+    <Content Include="Views\MediaItem\Details.cshtml" />
+    <Content Include="Views\MediaItem\Edit.cshtml" />
+    <Content Include="Views\MediaItem\Error.cshtml" />
+    <Content Include="Views\MediaItem\List.cshtml" />
+    <Content Include="Views\MediaItem\New.cshtml" />
+    <Content Include="Views\User\DeleteConfirm.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Error.cshtml" />
+    <Content Include="Views\User\List.cshtml" />
+    <Content Include="Views\User\New.cshtml" />
+    <Content Include="Views\UserMediaItem\DeleteConfirm.cshtml" />
+    <Content Include="Views\UserMediaItem\Details.cshtml" />
+    <Content Include="Views\UserMediaItem\Edit.cshtml" />
+    <Content Include="Views\UserMediaItem\Error.cshtml" />
+    <Content Include="Views\UserMediaItem\List.cshtml" />
+    <Content Include="Views\UserMediaItem\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\roslyn\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -837,6 +865,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202408030445134_FantacyPawCare.resx">
       <DependentUpon>202408030445134_FantacyPawCare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408031245213_FantacyPawCare-1.resx">
+      <DependentUpon>202408031245213_FantacyPawCare-1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

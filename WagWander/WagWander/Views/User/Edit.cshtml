@@ -1,0 +1,45 @@
+﻿@model WagWander.Models.UserDto
+
+@{
+    ViewBag.Title = "Edit User";
+}
+
+<h2>Update User</h2>
+
+<form action="/User/Update/@Model.UserID" method="POST" enctype = "multipart/form-data">
+    <div style="display:none;">
+        @* Pass through the User ID *@
+        <input type="text" name="UserID" value="@Model.UserID" />
+    </div>
+    <div>
+        <label for="UserName">Username:</label>
+        <input class="form-control" type="text" name="UserName" value="@Model.UserName" />
+    </div>
+    <div>
+        <label for="Bio">Bio:</label>
+        <textarea class="form-control" name="Bio" value="@Model.Bio" rows="4" cols="40"></textarea>
+    </div>
+    <div>
+        <label for="FavoriteGenre">Favourite Genre:</label>
+        <input class="form-control" type="text" name="FavoriteGenre" value="@Model.FavoriteGenre" />
+    </div>
+    <div>
+        <label for="Location">Location:</label>
+        <input class="form-control" type="text" name="Location" value="@Model.Location" />
+    </div>
+    <div style="display:none;">
+        @* Pass through the Join date *@
+        <input type="datetime" name="JoinDate" value="@Model.JoinDate" />
+    </div>
+    <div class="mt-3 col">
+        <label for="UserPic">Upload a Profile Picture</label>
+        <input class="btn btn-secondary" type="file" name="UserPic" />
+    </div>
+    <div>
+        <input class="btn btn-primary mt-3" type="submit" value="Update User" />
+    </div>
+</form>
+
+<div>
+    <a class="btn btn-dark mt-3" href="/User/details/@Model.UserID">Back</a>
+</div>

@@ -1,0 +1,35 @@
+﻿@model WagWander.Models.InquiryDto
+
+@{
+    ViewBag.Title = "Edit Inquiry";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h2 class="card-title">Edit Inquiry</h2>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/Inquiry/Update/@Model.InquiryId">
+                <input type="hidden" name="InquiryId" value="@Model.InquiryId" />
+
+                <div class="form-group">
+                    <label for="PetName">Pet Name</label>
+                    <input type="text" class="form-control" id="PetName" name="PetName" value="@Model.PetName" />
+                </div>
+
+                <div class="form-group">
+                    <label for="Username">Username</label>
+                    <input type="text" class="form-control" id="Username" name="Username" value="@Model.Username" />
+                </div>
+
+                <div class="form-group">
+                    <label for="InquiryText">Inquiry Text</label>
+                    <textarea class="form-control" id="InquiryText" name="InquiryText" rows="4">@Model.InquiryText</textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

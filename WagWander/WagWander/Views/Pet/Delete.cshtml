@@ -1,0 +1,41 @@
+﻿@model WagWander.Models.PetDto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-danger text-white">
+            <h2 class="card-title">Delete Pet</h2>
+        </div>
+        <div class="card-body">
+            <h3>Are you sure you want to delete this pet?</h3>
+
+            <div class="form-group">
+                <label for="Name">Name:</label>
+                <input type="text" class="form-control" id="Name" value="@Model.Name" readonly />
+            </div>
+            <div class="form-group">
+                <label for="Species">Species:</label>
+                <input type="text" class="form-control" id="Species" value="@Model.Species" readonly />
+            </div>
+            <div class="form-group">
+                <label for="Breed">Breed:</label>
+                <input type="text" class="form-control" id="Breed" value="@Model.Breed" readonly />
+            </div>
+            <div class="form-group">
+                <label for="Age">Age:</label>
+                <input type="number" class="form-control" id="Age" value="@Model.Age" readonly />
+            </div>
+        </div>
+        <div class="card-footer">
+            <form method="post" action="/Pet/Delete/@Model.PetId">
+                <input type="hidden" name="PetId" value="@Model.PetId" />
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="/Pet/List" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+

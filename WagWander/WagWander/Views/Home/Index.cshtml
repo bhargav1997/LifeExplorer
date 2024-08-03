@@ -4,7 +4,7 @@
     ViewBag.Title = "Welcome";
 }
 
-<main class="container mt-5">
+<main class="custom-container">
     <h2 class="text-center mb-4">@ViewBag.Title</h2>
 
     <div class="locations-section">
@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <div class="media-items-section mt-4">
+    <div class="media-items-section mt-4 custom-container">
         <h2>Featured Media Items</h2>
         <div class="row">
             @foreach (var mediaItem in Model.MediaItems)
@@ -67,6 +67,27 @@
                                 <strong>Genre:</strong> @mediaItem.Genre
                             </p>
                         </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="pet-items-section custom-container mt-4">
+        <h2>Featured Pets</h2>
+        <div class="list-group">
+            @foreach (var pet in Model.Pets)
+            {
+                <div class="list-group-item list-group-item-action flex-column align-items-start mb-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">@pet.Name</h5>
+                        <small class="text-muted">@pet.Age years old</small>
+                    </div>
+                    <p class="mb-1"><strong>Species:</strong> @pet.Species</p>
+                    <p class="mb-1"><strong>Breed:</strong> @pet.Breed</p>
+                    <div class="mt-2">
+                        <a href="/Pet/Details/@pet.PetId" class="btn btn-info">View Details</a>
+                        <a href="/Inquiry/NewInquiry?PetId=@pet.PetId" class="btn btn-secondary">Create New Inquiry</a>
                     </div>
                 </div>
             }

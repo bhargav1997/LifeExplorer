@@ -41,16 +41,34 @@ namespace WagWander.Controllers
                 PicExtension = location.PicExtension,
             }).ToList();
 
+            List<Pet> Pets = db.Pets.ToList();
+            List<PetDto> PetDtos = new List<PetDto>();
+
+            Pets.ForEach(p => PetDtos.Add(new PetDto()
+            {
+                PetId = p.PetId,
+                Name = p.Name,
+                Species = p.Species,
+                Breed = p.Breed,
+                Age = p.Age
+            }));
+
             var viewModel = new WagWanderModel
             {
                 Locations = locationDtos,
-                MediaItems = MediaItemDtos
+                MediaItems = MediaItemDtos,
+                Pets = PetDtos
             };
 
             return View(viewModel);
         }
 
         public ActionResult Media()
+        {
+            return View();
+        }
+
+        public ActionResult Pets()
         {
             return View();
         }

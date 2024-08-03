@@ -1,0 +1,68 @@
+﻿@model WagWander.Models.PetDto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">@Model.Name</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="card-text"><strong>Species:</strong> @Model.Species</p>
+                    <p class="card-text"><strong>Breed:</strong> @Model.Breed</p>
+                    <p class="card-text"><strong>Age:</strong> @Model.Age years</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <div class="btn-group" role="group" aria-label="Pet Actions">
+                        <a href="/Pet/Edit/@Model.PetId" class="btn btn-primary">Update</a>
+                        <a href="/Pet/Delete/@Model.PetId" class="btn btn-danger">Delete</a>
+                        <a href="/Pet/List" class="btn btn-secondary">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <h3 class="mb-3">Inquiries for @Model.Name</h3>
+            <ul class="list-group">
+                @foreach (var inquiry in ViewBag.Inquiries)
+                {
+                    <li class="list-group-item">
+                        <strong>From: @inquiry.Username</strong><br />
+                        @inquiry.InquiryText
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <!-- Unique Feature: Star Rating -->
+        <div class="card-footer">
+            <h3 class="mb-3">Rating</h3>
+            <div id="star-rating" class="text-warning">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <p id="rating-message" class="text-muted mt-2">Click a star to rate this pet!</p>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        // JavaScript to handle star rating
+        $(document).ready(function () {
+            $('#star-rating .star').on('click', function () {
+                var rating = $(this).attr('data-value');
+                $('#rating-message').text('You rated this pet ' + rating + ' stars.');
+                // Optionally, you can send this rating to the server via AJAX
+            });
+        });
+    </script>
+}
+

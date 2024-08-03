@@ -554,11 +554,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InquiryController.cs" />
+    <Compile Include="Controllers\InquiryDataController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\LocationDataController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MediaItemController.cs" />
     <Compile Include="Controllers\MediaItemDataController.cs" />
+    <Compile Include="Controllers\PetController.cs" />
+    <Compile Include="Controllers\PetDataController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\ReviewDataController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -724,6 +728,9 @@
     <Content Include="Content\Images\Locations\27.jpg" />
     <Content Include="Content\Images\Locations\30.jpg" />
     <Content Include="Content\Images\Locations\default.jpg" />
+    <Content Include="Content\Images\story1.jpg" />
+    <Content Include="Content\Images\story2.jpg" />
+    <Content Include="Content\Images\story3.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -810,6 +817,20 @@
     <Content Include="Views\UserMediaItem\Error.cshtml" />
     <Content Include="Views\UserMediaItem\List.cshtml" />
     <Content Include="Views\UserMediaItem\New.cshtml" />
+    <Content Include="Views\Inquiry\DeleteInquiry.cshtml" />
+    <Content Include="Views\Inquiry\DetailsInquiry.cshtml" />
+    <Content Include="Views\Inquiry\EditInquiry.cshtml" />
+    <Content Include="Views\Inquiry\ListInquiries.cshtml" />
+    <Content Include="Views\Inquiry\NewInquiry.cshtml" />
+    <Content Include="Views\Pet\Delete.cshtml" />
+    <Content Include="Views\Pet\Details.cshtml" />
+    <Content Include="Views\Pet\Edit.cshtml" />
+    <Content Include="Views\Pet\List.cshtml" />
+    <Content Include="Views\Pet\New.cshtml" />
+    <Content Include="Views\Home\Pets.cshtml" />
+    <Content Include="Views\Pet\AdoptionProcess.cshtml" />
+    <Content Include="Views\Pet\SuccessStories.cshtml" />
+    <Content Include="Views\Pet\Volunteer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

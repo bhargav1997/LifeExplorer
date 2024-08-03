@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "List Inquiries";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="display-4 mb-4">List Inquiries</h2>
+
+            @foreach (var inquiry in Model)
+            {
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="#" class="text-primary toggle-inquiry">@inquiry.PetName - @inquiry.Username</a>
+                        </h5>
+                        <div class="inquiry-details" style="display: none;">
+                            <p class="card-text mb-1"><strong>Pet Name:</strong> @inquiry.PetName</p>
+                            <p class="card-text mb-1"><strong>Username:</strong> @inquiry.Username</p>
+                            <p class="card-text"><strong>Inquiry Text:</strong> @inquiry.InquiryText</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        // JavaScript to handle expand/collapse of inquiry details
+        $(document).ready(function () {
+            $('.toggle-inquiry').on('click', function (e) {
+                e.preventDefault();
+                var details = $(this).closest('.card-body').find('.inquiry-details');
+                details.slideToggle();
+            });
+        });
+    </script>
+}

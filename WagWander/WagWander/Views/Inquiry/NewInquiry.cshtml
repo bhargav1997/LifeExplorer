@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Create Inquiry";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-secondary text-white">
+            <h2 class="card-title">Create Inquiry</h2>
+        </div>
+        <div class="card-body">
+            <form action="/Inquiry/Create" method="POST">
+                <input type="hidden" name="PetId" value="@ViewBag.PetId" />
+                <div class="mb-3">
+                    <label for="PetName" class="form-label">Pet Name</label>
+                    <input type="text" class="form-control" id="PetName" name="PetName" placeholder="Enter pet name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="Username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="Username" name="Username" placeholder="Enter username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="InquiryText" class="form-label">Inquiry Text</label>
+                    <textarea class="form-control" id="InquiryText" name="InquiryText" rows="4" placeholder="Enter inquiry text" required></textarea>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-block">Add Inquiry</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

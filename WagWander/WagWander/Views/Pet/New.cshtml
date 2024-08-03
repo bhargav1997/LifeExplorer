@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Create Pet";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header text-white bg-primary">
+            <h3 class="mb-0">Create Pet</h3>
+        </div>
+        <div class="card-body">
+            <form action="/Pet/Create" method="POST">
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="Name" name="Name" required placeholder="Enter Pet Name">
+                </div>
+                <div class="mb-3">
+                    <label for="Species" class="form-label">Species:</label>
+                    <input type="text" class="form-control" id="Species" name="Species" required placeholder="Enter Specifies here..">
+                </div>
+                <div class="mb-3">
+                    <label for="Breed" class="form-label">Breed:</label>
+                    <input type="text" class="form-control" id="Breed" name="Breed" required placeholder="Enter Breed here.">
+                </div>
+                <div class="mb-3">
+                    <label for="Age" class="form-label">Age:</label>
+                    <input type="number" class="form-control" id="Age" name="Age" required placeholder="Age here (ex: 9)">
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-outline-success">ADD</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

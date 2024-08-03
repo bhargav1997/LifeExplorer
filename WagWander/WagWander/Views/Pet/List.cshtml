@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Pet Lists";
+}
+
+<div class="custom-container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="display-4">Find your fur friend!</h2>
+        <a href="/Pet/New" class="btn btn-primary btn-lg">Add New Pet</a>
+    </div>
+    <div class="list-group">
+        @foreach (var pet in Model)
+        {
+            <div class="list-group-item list-group-item-action flex-column align-items-start mb-3">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@pet.Name</h5>
+                    <small class="text-muted">@pet.Age years old</small>
+                </div>
+                <p class="mb-1"><strong>Species:</strong> @pet.Species</p>
+                <p class="mb-1"><strong>Breed:</strong> @pet.Breed</p>
+                <div class="mt-2">
+                    <a href="/Pet/Details/@pet.PetId" class="btn btn-info">View Details</a>
+                    <a href="/Inquiry/NewInquiry?PetId=@pet.PetId" class="btn btn-secondary">Create New Inquiry</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

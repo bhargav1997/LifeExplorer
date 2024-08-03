@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "SuccessStories";
+}
+
+<div class="custom-container">
+    <h1 class="text-primary">@ViewBag.Title</h1>
+    <p>Read heartwarming stories from families who have adopted pets through PawCare.</p>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="~/Content/images/story1.jpg" class="card-img-top" alt="Story 1">
+                <div class="card-body">
+                    <h5 class="card-title">The Johnson Family</h5>
+                    <p class="card-text">"Adopting Max was the best decision we ever made. He’s brought so much joy into our lives!"</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img src="~/Content/images/story2.jpg" class="card-img-top" alt="Story 2">
+                <div class="card-body">
+                    <h5 class="card-title">The Smiths</h5>
+                    <p class="card-text">"Bella has become a cherished member of our family. The adoption process was smooth and supportive."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img src="~/Content/Images/story3.jpg" class="card-img-top" alt="Story 3">
+                <div class="card-body">
+                    <h5 class="card-title">The Lee Family</h5>
+                    <p class="card-text">"Our new furry friend, Charlie, has brought so much happiness into our home. We couldn’t be happier!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="@Url.Action("Index", "Home")" class="btn btn-primary mt-4">Back to Home</a>
+</div>
+

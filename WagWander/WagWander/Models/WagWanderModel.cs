@@ -9,5 +9,6 @@ namespace WagWander.Models
     {
         public IEnumerable<LocationDto> Locations { get; set; }
         public IEnumerable<MediaItemDto> MediaItems { get; set; }
+        public IEnumerable<PetDto> Pets { get; set; }
     }
 }

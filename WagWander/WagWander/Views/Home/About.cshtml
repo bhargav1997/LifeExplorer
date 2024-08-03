@@ -1,16 +1,21 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<main aria-labelledby="title">
-    <h1 id="title" class="text-center">@ViewBag.Title</h1>
-    <h3 class="text-center text-muted col-md-8 offset-md-2">@ViewBag.Message</h3>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <p>
-                    Welcome to "Wag Wander," an innovative platform that combines pet adoption, local exploration, and media tracking into a unified user experience. LifeExplorer allows users to adopt pets, discover pet-friendly local spots, and track media related to their interests, all within a single, cohesive application.
-                </p>
+<main aria-labelledby="title" class="container mt-5">
+    <div class="text-center my-5">
+        <h1 id="title" class="display-3 font-weight-bold text-primary">@ViewBag.Title</h1>
+        <h3 class="text-muted">@ViewBag.Message</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow-sm border-light">
+                <div class="card-body">
+                    <p class="lead">
+                        Welcome to "Wag Wander," an innovative platform that combines pet adoption, local exploration, and media tracking into a unified user experience. LifeExplorer allows users to adopt pets, discover pet-friendly local spots, and track media related to their interests, all within a single, cohesive application.
+                    </p>
+                </div>
             </div>
         </div>
     </div>

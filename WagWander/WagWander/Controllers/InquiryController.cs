@@ -49,6 +49,7 @@ namespace WagWander.Controllers
         }
 
         // GET: Inquiry/NewInquiry
+        [Authorize]
         public ActionResult NewInquiry(int PetId)
         {
             ViewBag.PetId = PetId;
@@ -78,6 +79,7 @@ namespace WagWander.Controllers
         }
 
         // GET: Inquiry/Edit/5
+        [Authorize]
         public ActionResult EditInquiry(int id)
         {
             string url = "findinquiry/" + id;

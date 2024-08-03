@@ -45,6 +45,7 @@ namespace WagWander.Controllers
         }
 
         // GET: UserMediaItem/New
+        [Authorize]
         public ActionResult New(int id)
         {
             var userMediaItem = new UserMediaItem
@@ -58,6 +59,7 @@ namespace WagWander.Controllers
 
         // POST: UserMediaItem/Create
         [HttpPost]
+        [Authorize]
         public ActionResult Create(UserMediaItem UserMediaItem)
         {
             Debug.WriteLine("the json payload is :");
@@ -87,6 +89,7 @@ namespace WagWander.Controllers
         }
 
         // GET: UserMediaItem/Edit/5
+        [Authorize]
         public ActionResult Edit(int id)
         {
             string url = "UserMediaItemData/FindUserMediaItem/" + id;
@@ -100,6 +103,7 @@ namespace WagWander.Controllers
 
         // POST: UserMediaItem/Update/5
         [HttpPost]
+        [Authorize]
         public ActionResult Update(int id, UserMediaItem UserMediaItem)
         {
 
@@ -137,6 +141,7 @@ namespace WagWander.Controllers
 
 
         // GET: UserMediaItem/DeleteConfirm/5
+        [Authorize]
         public ActionResult DeleteConfirm(int id)
         {
             string url = "usermediaItemdata/FindUserMediaItem/" + id;
@@ -148,6 +153,7 @@ namespace WagWander.Controllers
 
         // POST: UserMediaItem/Delete/5
         [HttpPost]
+        [Authorize]
         public ActionResult Delete(int id)
         {
             string url = "UserMediaItemdata/deleteUserMediaItem/" + id;

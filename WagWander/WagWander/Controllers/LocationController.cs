@@ -25,6 +25,7 @@ namespace WagWander.Controllers
             client.BaseAddress = new Uri("https://localhost:44341/api/locationdata/");
         }
 
+        [Authorize]
         public ActionResult Add()
         {
             return View();

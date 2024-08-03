@@ -78,6 +78,7 @@ namespace WagWander.Controllers {
         }
 
         // GET: User/New
+        [Authorize]
         public ActionResult New() {
             
             return View();
@@ -85,6 +86,7 @@ namespace WagWander.Controllers {
 
         // POST: User/Create
         [HttpPost]
+        [Authorize]
         public ActionResult Create(User user) {
             Debug.WriteLine("the json payload is :");
             //objective: add a new user into our system using the API
@@ -110,6 +112,7 @@ namespace WagWander.Controllers {
         }
 
         // GET: User/Edit/5
+        [Authorize]
         public ActionResult Edit(int id) {
 
             //the existing user information
@@ -122,6 +125,7 @@ namespace WagWander.Controllers {
 
         // POST: User/Update/5
         [HttpPost]
+        [Authorize]
         public ActionResult Update(int id, User user, HttpPostedFileBase UserPic) {
 
             string url = "userdata/updateuser/" + id;
@@ -157,6 +161,7 @@ namespace WagWander.Controllers {
         }
 
         // GET: User/Delete/5
+        [Authorize]
         public ActionResult DeleteConfirm(int id) {
             string url = "userdata/finduser/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
@@ -166,6 +171,7 @@ namespace WagWander.Controllers {
 
         // POST: User/Delete/5
         [HttpPost]
+        [Authorize]
         public ActionResult Delete(int id) {
             string url = "userdata/deleteuser/" + id;
             HttpContent content = new StringContent("");

@@ -31,6 +31,13 @@ namespace WagWander.Models
         // Add an Reviews entity to our system
         public DbSet<Review> Reviews { get; set; }
 
+        public DbSet<Pet> Pets { get; set; }
+        public DbSet<User> User { get; set; }
+
+        public DbSet<UserMediaItem> UserMediaItems { get; set; }
+        public DbSet<Inquiry> Inquiries { get; set; }
+
+        public DbSet<MediaItem> MediaItems { get; set; }
 
         public static ApplicationDbContext Create()
         {

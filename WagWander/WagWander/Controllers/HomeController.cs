@@ -31,6 +31,11 @@ namespace WagWander.Controllers
             return View(locationDtos);
         }
 
+        public ActionResult Media()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "A CMS for local guides to share information about attractions, restaurants, events, and services in their area.";

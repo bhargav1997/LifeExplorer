@@ -21,7 +21,7 @@
                         <label class="fw-bold">Username:</label> @Model.Username
                     </div>
                     <div class="mb-3">
-                        <label class="fw-bold">Inquiry Text:</label> @Model.InquiryText
+                        <label class="fw-bold">Inquiry Text:</label> @Html.Raw(@Model.InquiryText)
                     </div>
                 </div>
                 <div class="card-footer">

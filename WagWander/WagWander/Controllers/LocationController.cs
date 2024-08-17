@@ -10,6 +10,7 @@ using System.Web;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Text;
 
 namespace WagWander.Controllers
 {
@@ -49,13 +50,11 @@ namespace WagWander.Controllers
             location.CreatedDate = DateTime.Now;
 
             string jsonpayload = jss.Serialize(location);
-            HttpContent content = new StringContent(jsonpayload);
-            content.Headers.ContentType.MediaType = "application/json";
+            HttpContent content = new StringContent(jsonpayload, Encoding.UTF8, "application/json");
 
             try
             {
                 HttpResponseMessage response = client.PostAsync(url, content).Result;
-
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -63,11 +62,11 @@ namespace WagWander.Controllers
                 }
                 else if (response.StatusCode == HttpStatusCode.BadRequest)
                 {
-                    return View("Add", location); 
+                    return View("Add", location);
                 }
                 else
                 {
-                    // Handle other status codes (e.g., 500 Internal Server Error)
+                    // Handle other status codes
                     return RedirectToAction("Error");
                 }
             }

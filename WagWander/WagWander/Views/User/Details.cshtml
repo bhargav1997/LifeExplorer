@@ -18,7 +18,7 @@
         }
         <div class="mb-2"><img style="display:block; max-width:100%;" alt="@Model.SelectedUser.UserName" src="@imageurl" /></div>
         <div><p class="fw-bold">Bio:</p>
-             <p>@Model.SelectedUser.Bio</p></div>
+             <p>@Html.Raw(@Model.SelectedUser.Bio)</p></div>
         <div>
             <p class="fw-bold">Favorite Genre:</p>
             <p>@Model.SelectedUser.FavoriteGenre</p>
@@ -68,7 +68,7 @@
                 @item.Type
             </td>
             <td>
-                @item.Review
+                @Html.Raw(@item.Review)
             </td>
             <td>
                 <a class="btn btn-primary" href="/usermediaitem/edit/@item.UserMediaItemID">Edit </a>

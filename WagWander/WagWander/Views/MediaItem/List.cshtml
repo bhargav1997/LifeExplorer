@@ -17,7 +17,7 @@
                 <strong>Type:</strong> @mediaItem.Type
             </p>
             <p class="list-group-item-text">
-                <strong>Description:</strong> @mediaItem.Description
+                <strong>Description:</strong> @Html.Raw(@mediaItem.Description)
             </p>
             <p class="list-group-item-text">
                 <strong>Release Date:</strong> @mediaItem.ReleaseDate.ToShortDateString()

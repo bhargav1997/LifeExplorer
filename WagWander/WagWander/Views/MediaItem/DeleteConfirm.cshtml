@@ -11,7 +11,7 @@
 <a href="/MediaItem/List" class="link link-info">Cancel</a>
 
 <h2>@Model.Title</h2>
-<div>Description: @Model.Description </div>
+<div>Description: @Html.Raw(@Model.Description) </div>
 <div>Type: @Model.Type</div>
 <div>Genre: @Model.Genre</div>
 <div>ReleaseDate: @Model.ReleaseDate.ToShortDateString()</div>

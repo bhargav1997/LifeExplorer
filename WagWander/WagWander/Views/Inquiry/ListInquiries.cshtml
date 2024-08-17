@@ -17,7 +17,7 @@
                         <div class="inquiry-details" style="display: none;">
                             <p class="card-text mb-1"><strong>Pet Name:</strong> @inquiry.PetName</p>
                             <p class="card-text mb-1"><strong>Username:</strong> @inquiry.Username</p>
-                            <p class="card-text"><strong>Inquiry Text:</strong> @inquiry.InquiryText</p>
+                            <p class="card-text"><strong>Inquiry Text:</strong> @Html.Raw(@inquiry.InquiryText)</p>
                         </div>
                     </div>
                 </div>

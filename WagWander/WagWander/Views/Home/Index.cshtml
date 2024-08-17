@@ -24,7 +24,7 @@
                         <img class="card-img-top img-fluid" alt="@location.LocationName" src="@imageurl" />
                         <div class="card-body">
                             <h5 class="card-title">@location.LocationName</h5>
-                            <p class="card-text">@location.LocationDescription</p>
+                            <p class="card-text">@Html.Raw(@location.LocationDescription)</p>
                             <p class="card-text"><strong>Category:</strong> @location.Category</p>
                             <p class="card-text"><strong>Address:</strong> @location.Address</p>
                             <p class="card-text"><strong>Average Rating:</strong> @location.AverageRating</p>
@@ -58,7 +58,7 @@
                                 <strong>Type:</strong> @mediaItem.Type
                             </p>
                             <p class="card-text">
-                                <strong>Description:</strong> @mediaItem.Description
+                                <strong>Description:</strong> @Html.Raw(@mediaItem.Description)
                             </p>
                             <p class="card-text">
                                 <strong>Release Date:</strong> @mediaItem.ReleaseDate.ToShortDateString()

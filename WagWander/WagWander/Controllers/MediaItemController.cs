@@ -15,6 +15,7 @@ namespace WagWander.Controllers
     {
         private static readonly HttpClient client;
         private JavaScriptSerializer jss = new JavaScriptSerializer();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         static MediaItemController()
         {
@@ -22,8 +23,8 @@ namespace WagWander.Controllers
             client.BaseAddress = new Uri("https://localhost:44341/api/");
         }
 
-        // GET: MediaItem/List
-        public ActionResult List()
+    // GET: MediaItem/List
+    public ActionResult List()
         {
             //objective: communicate with our mediaitem data api to retrieve a list of mediaitem
             //curl https://localhost:44341/api/MediaItemdata/listMediaItems
@@ -84,6 +85,13 @@ namespace WagWander.Controllers
         [Authorize]
         public ActionResult New()
         {
+            var locations = db.Locations.Select(l => new {
+                LocationId = l.LocationId,
+                LocationName = l.LocationName
+            }).ToList();
+
+            ViewBag.Locations = new SelectList(locations, "LocationId", "LocationName");
+
             return View();
         }
 
@@ -179,5 +187,6 @@ namespace WagWander.Controllers
                 return RedirectToAction("Error");
             }
         }
+
     }
 }

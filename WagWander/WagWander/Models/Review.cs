@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace WagWander.Models
 {
@@ -12,6 +13,7 @@ namespace WagWander.Models
         [Key]
         public int ReviewId { get; set; }
 
+        [AllowHtml]
         public string Content { get; set; }
 
         public int Rating { get; set; }

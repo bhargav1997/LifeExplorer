@@ -7,13 +7,13 @@ namespace WagWander.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class InitialCreate1 : IMigrationMetadata
+    public sealed partial class InitialCreate2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate2));
         
         string IMigrationMetadata.Id
         {
-            get { return "202408022318535_InitialCreate1"; }
+            get { return "202408170534474_InitialCreate2"; }
         }
         
         string IMigrationMetadata.Source

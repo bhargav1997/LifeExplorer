@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace WagWander.Models {
     public class UserMediaItem {
@@ -22,6 +23,8 @@ namespace WagWander.Models {
         public virtual MediaItem MediaItem { get; set; }
 
         public int? Rating { get; set; } // Rating between 0 and 10
+        
+        [AllowHtml]
         public string Review { get; set; }
         public string Status { get; set; } // "Playing", "Completed", "Watching", "Dropped", "Planning"
         

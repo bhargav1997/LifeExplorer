@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace WagWander.Models {
     public class User {
@@ -11,6 +12,7 @@ namespace WagWander.Models {
         public int UserID { get; set; }
         public string UserName { get; set; }
 
+        [AllowHtml]
         public string Bio { get; set; }
 
         public string FavoriteGenre { get; set; }

@@ -8,11 +8,20 @@
     <div class="card shadow-sm border-light">
         <div class="card-body">
             <h2 class="card-title">@Model.LocationName</h2>
-            <p class="card-text">@Model.LocationDescription</p>
+            <p class="card-text">@Html.Raw(Model.LocationDescription)</p>
             <p class="card-text"><strong>Category:</strong> @Model.Category</p>
             <p class="card-text"><strong>Address:</strong> @Model.Address</p>
             <p class="card-text"><strong>Ratings:</strong> @Model.AverageRating</p>
             <p class="card-text"><strong>Created Date:</strong> @Model.CreatedDate.ToString("yyyy-MM-dd")</p>
+
+            <h3>Media Items Featured in This Location:</h3>
+            <ul>
+                @foreach (var mediaItem in Model.MediaItems)
+                {
+                    <li>@mediaItem.Title (@mediaItem.Type)</li>
+                }
+            </ul>
+
 
             @{
                 string imageurl = "/Content/Images/Locations/default.jpg";

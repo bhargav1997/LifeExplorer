@@ -455,6 +455,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -572,29 +573,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202408022258377_InitialCreate.cs" />
-    <Compile Include="Migrations\202408022258377_InitialCreate.Designer.cs">
-      <DependentUpon>202408022258377_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202408022318535_InitialCreate1.cs" />
-    <Compile Include="Migrations\202408022318535_InitialCreate1.Designer.cs">
-      <DependentUpon>202408022318535_InitialCreate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202408030439556_Fantacy.cs" />
-    <Compile Include="Migrations\202408030439556_Fantacy.Designer.cs">
-      <DependentUpon>202408030439556_Fantacy.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202408030442544_PawCare.cs" />
-    <Compile Include="Migrations\202408030442544_PawCare.Designer.cs">
-      <DependentUpon>202408030442544_PawCare.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202408030445134_FantacyPawCare.cs" />
-    <Compile Include="Migrations\202408030445134_FantacyPawCare.Designer.cs">
-      <DependentUpon>202408030445134_FantacyPawCare.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202408031245213_FantacyPawCare-1.cs" />
-    <Compile Include="Migrations\202408031245213_FantacyPawCare-1.Designer.cs">
-      <DependentUpon>202408031245213_FantacyPawCare-1.cs</DependentUpon>
+    <Compile Include="Migrations\202408170534474_InitialCreate2.cs" />
+    <Compile Include="Migrations\202408170534474_InitialCreate2.Designer.cs">
+      <DependentUpon>202408170534474_InitialCreate2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -745,6 +726,7 @@
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="Properties\serviceDependencies.json" />
     <Content Include="Properties\serviceDependencies.local.json" />
+    <None Include="Properties\.editorconfig" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -872,23 +854,8 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202408022258377_InitialCreate.resx">
-      <DependentUpon>202408022258377_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202408022318535_InitialCreate1.resx">
-      <DependentUpon>202408022318535_InitialCreate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202408030439556_Fantacy.resx">
-      <DependentUpon>202408030439556_Fantacy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202408030442544_PawCare.resx">
-      <DependentUpon>202408030442544_PawCare.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202408030445134_FantacyPawCare.resx">
-      <DependentUpon>202408030445134_FantacyPawCare.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202408031245213_FantacyPawCare-1.resx">
-      <DependentUpon>202408031245213_FantacyPawCare-1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202408170534474_InitialCreate2.resx">
+      <DependentUpon>202408170534474_InitialCreate2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

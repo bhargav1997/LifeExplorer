@@ -22,7 +22,7 @@
                         <p class="card-text"><strong>Username:</strong> @Model.Username</p>
                     </div>
                     <div class="mb-3">
-                        <p class="card-text"><strong>Inquiry Text:</strong> @Model.InquiryText</p>
+                        <p class="card-text"><strong>Inquiry Text:</strong> @Html.Raw(@Model.InquiryText)</p>
                     </div>
                 </div>
                 <div class="card-footer text-end">

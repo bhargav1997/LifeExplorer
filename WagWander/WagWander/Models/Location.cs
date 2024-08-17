@@ -4,8 +4,9 @@
     using System.Web;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
-    namespace WagWander.Models
+namespace WagWander.Models
     {
         public class Location
         {
@@ -14,6 +15,8 @@
 
             [Required]
             public string LocationName { get; set; }
+
+            [AllowHtml]
             public string LocationDescription { get; set; }
             public string Category { get; set; }
             public string Address { get; set; }
@@ -25,6 +28,9 @@
             // Navigation property to reviews
             public virtual ICollection<Review> Reviews { get; set; }
 
+            // Navigation property to media items
+            public virtual ICollection<MediaItem> MediaItems { get; set; }
+
             // Data needed for keeping track of Location images uploaded
             // Images deposited into /Content/Images/Locations/{id}.{extension}
             public bool LocationHasPic { get; set; }
@@ -35,6 +41,8 @@
         {
             public int LocationId { get; set; }
             public string LocationName { get; set; }
+            
+            [AllowHtml]
             public string LocationDescription { get; set; }
             public string Category { get; set; }
             public string Address { get; set; }
@@ -45,6 +53,8 @@
             //images deposited into /Content/Images/Locations/{id}.{extension}
             public bool LocationHasPic { get; set; }
             public string PicExtension { get; set; }
+
+            public List<MediaItemDto> MediaItems { get; set; }
     }
 
     public class LocationWithReviewsDto

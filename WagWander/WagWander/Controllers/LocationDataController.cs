@@ -388,5 +388,57 @@ namespace WagWander.Controllers
                 return BadRequest("Not multipart content");
             }
         }
+
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/LocationData/LocationWithMediaItems/{id}")]
+        [ResponseType(typeof(LocationDto))]
+        public IHttpActionResult LocationWithMediaItems(int id)
+        {
+            Location location = db.Locations.Include(l => l.MediaItems).FirstOrDefault(l => l.LocationId == id);
+            if (location == null)
+            {
+                return NotFound();
+            }
+
+            LocationDto locationDto = new LocationDto
+            {
+                LocationId = location.LocationId,
+                LocationName = location.LocationName,
+                LocationDescription = location.LocationDescription,
+                Category = location.Category,
+                Address = location.Address,
+                CreatedDate = location.CreatedDate,
+                MediaItems = location.MediaItems.Select(mi => new MediaItemDto
+                {
+                    MediaItemID = mi.MediaItemID,
+                    Title = mi.Title,
+                    Type = mi.Type,
+                    Description = mi.Description,
+                    ReleaseDate = mi.ReleaseDate,
+                    Genre = mi.Genre,
+                    LocationId = mi.LocationId,
+                    LocationName = location.LocationName
+                }).ToList()
+            };
+
+            return Ok(locationDto);
+        }
+
+        [System.Web.Http.HttpPost]
+        [System.Web.Http.Route("api/LocationData/AddMediaItem")]
+        [ResponseType(typeof(MediaItem))]
+        public IHttpActionResult AddMediaItem(MediaItem mediaItem)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.MediaItems.Add(mediaItem);
+            db.SaveChanges();
+
+            return Ok(mediaItem);
+        }
+
     }
 }

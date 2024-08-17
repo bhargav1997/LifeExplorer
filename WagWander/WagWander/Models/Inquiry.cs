@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace WagWander.Models
 {
@@ -20,6 +21,7 @@ namespace WagWander.Models
 
         public string Username { get; set; }
 
+        [AllowHtml]
         public string InquiryText { get; set; }
     }
 

@@ -9,10 +9,10 @@
     <div class="card mb-4">
         <div class="card-body">
             <h2 class="card-title">@Model.LocationName</h2>
-            <p class="card-text"><strong>Description:</strong> @Model.LocationDescription</p>
-            <p class="card-text"><strong>Category:</strong> @Model.Category</p>
-            <p class="card-text"><strong>Address:</strong> @Model.Address</p>
-            <p class="card-text"><strong>Created Date:</strong> @Model.CreatedDate.ToString("yyyy-MM-dd")</p>
+            <p class="card-text"><strong>Description:</strong>@Html.Raw(Model.LocationDescription)</p>
+            <p class="card-text"><strong>Category:</strong>@Model.Category</p>
+            <p class="card-text"><strong>Address:</strong>@Model.Address</p>
+            <p class="card-text"><strong>Created Date:</strong>@Model.CreatedDate.ToString("yyyy-MM-dd")</p>
         </div>
     </div>
 
@@ -37,7 +37,7 @@
                             </form>
                         </div>
                     </div>
-                    <p class="mb-1">@review.Content</p>
+                    <p class="mb-1">@Html.Raw(@review.Content)</p>
                     <p class="mb-1 text-muted"><em>Reviewed on: @review.CreatedDate.ToString("yyyy-MM-dd")</em></p>
                 </div>
             }

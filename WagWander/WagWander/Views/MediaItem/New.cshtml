@@ -8,11 +8,11 @@
 
 <form action="/MediaItem/Create" method="POST">
     <div>
-        <label for="Title">Title:</label> 
-        <input class="form-control" type="text" name="Title" placeholder="Enter Title Here.(Ex: RAM)."  />
+        <label for="Title">Title:</label>
+        <input class="form-control" type="text" name="Title" placeholder="Enter Title Here.(Ex: RAM)." />
     </div>
     <div>
-        <label for="Description">Description:</label> 
+        <label for="Description">Description:</label>
         <textarea class="form-control" name="Description" rows="5" cols="50" placeholder="Enter Description.."></textarea>
     </div>
     <div>
@@ -24,17 +24,24 @@
             <input type="radio" name=Type value="Movie" id="MovieRadio" /> <label for="MovieRadio">Movie</label>
         </fieldset>
     </div>
-    
+
     <div>
-        <label for="Genre">Genre:</label> 
-        <input class="form-control" type="text" name="Genre" placeholder="Genre (Ex. Media)"/>
+        <label for="Genre">Genre:</label>
+        <input class="form-control" type="text" name="Genre" placeholder="Genre (Ex. Media)" />
     </div>
     <div>
-        <label for="ReleaseDate">ReleaseDate:</label> 
-        <input class="form-control" type="date" name="ReleaseDate"/>
+        <label for="ReleaseDate">ReleaseDate:</label>
+        <input class="form-control" type="date" name="ReleaseDate" />
     </div>
+
+    @Html.LabelFor(model => model.LocationId)
+    @Html.DropDownListFor(model => model.LocationId, (SelectList)ViewBag.Locations, "Select Location")
+    @Html.ValidationMessageFor(model => model.LocationId)
+
+    <button type="button" onclick="window.location.href='@Url.Action("Add", "Location")'" class="btn btn-info">Add New Location</button>
+
     <div>
-        <input class=" btn btn-success mt-3" type="submit" value="Add Media Item" />
+        <input class="btn btn-success mt-3" type="submit" value="Add Media Item" />
     </div>
 </form>
 

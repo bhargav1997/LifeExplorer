@@ -9,11 +9,11 @@
 <form action="/MediaItem/Create" method="POST">
     <div>
         <label for="Title">Title:</label> 
-        <input class="form-control" type="text" name=Title />
+        <input class="form-control" type="text" name="Title" placeholder="Enter Title Here.(Ex: RAM)."  />
     </div>
     <div>
         <label for="Description">Description:</label> 
-        <textarea class="form-control" name="Description" rows="5" cols="50"> </textarea>
+        <textarea class="form-control" name="Description" rows="5" cols="50" placeholder="Enter Description.."></textarea>
     </div>
     <div>
         <fieldset>
@@ -27,15 +27,14 @@
     
     <div>
         <label for="Genre">Genre:</label> 
-        <input class="form-control" type="text" name="Genre" />
+        <input class="form-control" type="text" name="Genre" placeholder="Genre (Ex. Media)"/>
     </div>
     <div>
         <label for="ReleaseDate">ReleaseDate:</label> 
-        <input class="form-control" type="date" name="ReleaseDate" />
+        <input class="form-control" type="date" name="ReleaseDate"/>
     </div>
     <div>
         <input class=" btn btn-success mt-3" type="submit" value="Add Media Item" />
-
     </div>
 </form>
 

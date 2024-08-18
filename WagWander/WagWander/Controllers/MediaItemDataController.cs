@@ -44,6 +44,8 @@ namespace WagWander.Controllers
                 Description = m.Description,
                 ReleaseDate = m.ReleaseDate,
                 Genre = m.Genre,
+                LocationName = m.Location.LocationName,
+                LocationId = m.Location.LocationId,
             }));
 
             return Ok(MediaItemDtos);

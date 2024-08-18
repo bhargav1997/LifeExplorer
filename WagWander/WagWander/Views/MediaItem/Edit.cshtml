@@ -8,7 +8,7 @@
 
 <form action="/MediaItem/Update/@Model.MediaItemID" method="POST">
     <div style="display:none;">
-        @* Pass through the User ID *@
+        @* Pass through the Media Item ID *@
         <input type="text" name="MediaItemID" value="@Model.MediaItemID" />
     </div>
     <div>
@@ -21,11 +21,15 @@
     </div>
     <div>
         <label for="Description">Description:</label>
-        <textarea class="form-control"  name="Description" value="@Model.Description" rows="4" cols="40"> </textarea> 
+        <textarea class="form-control" name="Description" rows="4" cols="40">@Model.Description</textarea>
     </div>
     <div>
         <label for="Genre">Genre:</label>
         <input class="form-control" type="text" name="Genre" value="@Model.Genre" />
+    </div>
+    <div>
+        <label for="Location">Location:</label>
+        @Html.DropDownListFor(model => model.LocationId, new SelectList(ViewBag.Locations, "LocationId", "LocationName", Model.LocationId), "Select Location", new { @class = "form-control" })
     </div>
     <div style="display:none;">
         @* Pass through the Release Date *@
@@ -36,6 +40,6 @@
     </div>
 </form>
 
-<div>
+<div class="mt-2">
     <a class="btn btn-dark" href="/MediaItem/List">Back to list</a>
 </div>

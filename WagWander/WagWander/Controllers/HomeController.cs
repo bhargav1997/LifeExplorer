@@ -26,6 +26,8 @@ namespace WagWander.Controllers
                 Description = m.Description,
                 ReleaseDate = m.ReleaseDate,
                 Genre = m.Genre,
+                LocationId = m.LocationId,
+                LocationName = m.Location.LocationName
             }));
 
             var locationDtos = locations.Select(location => new LocationDto

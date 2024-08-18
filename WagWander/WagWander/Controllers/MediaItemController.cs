@@ -131,24 +131,39 @@ namespace WagWander.Controllers
         [Authorize]
         public ActionResult Edit(int id)
         {
-            string url = "mediaitemdata/findmediaitem/" + id;
-            HttpResponseMessage response = client.GetAsync(url).Result;
-            MediaItemDto selectedMediaItem = response.Content.ReadAsAsync<MediaItemDto>().Result;
+            // Fetch the media item details
+            string mediaItemUrl = "mediaitemdata/findmediaitem/" + id;
+            HttpResponseMessage mediaItemResponse = client.GetAsync(mediaItemUrl).Result;
+            MediaItemDto selectedMediaItem = mediaItemResponse.Content.ReadAsAsync<MediaItemDto>().Result;
+
+            if (selectedMediaItem == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Fetch the list of locations
+            string locationUrl = "locationdata/ListLocations";
+            HttpResponseMessage locationResponse = client.GetAsync(locationUrl).Result;
+            IEnumerable<LocationDto> locations = locationResponse.Content.ReadAsAsync<IEnumerable<LocationDto>>().Result;
+
+            // Pass locations to the ViewBag for the dropdown list
+            ViewBag.Locations = locations;
+
             return View(selectedMediaItem);
         }
+
 
         // POST: MediaItem/Update/5
         [HttpPost]
         [Authorize]
-        public ActionResult Update(int id, MediaItem MediaItem)
+        public ActionResult Update(int id, MediaItem mediaItem)
         {
-
             string url = "mediaitemdata/updatemediaitem/" + id;
-            string jsonpayload = jss.Serialize(MediaItem);
-            HttpContent content = new StringContent(jsonpayload);
+            string jsonPayload = jss.Serialize(mediaItem);
+            HttpContent content = new StringContent(jsonPayload);
             content.Headers.ContentType.MediaType = "application/json";
             HttpResponseMessage response = client.PostAsync(url, content).Result;
-            Debug.WriteLine(content);
+
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("List");
@@ -158,6 +173,7 @@ namespace WagWander.Controllers
                 return RedirectToAction("Error");
             }
         }
+
 
         // GET: MediaItem/Delete/5
         public ActionResult DeleteConfirm(int id)

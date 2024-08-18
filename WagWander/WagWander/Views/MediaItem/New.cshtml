@@ -32,7 +32,7 @@
     <div>
         <label for="ReleaseDate">ReleaseDate:</label>
         <input class="form-control" type="date" name="ReleaseDate" />
-    </div>
+    </div>  
 
     @Html.LabelFor(model => model.LocationId)
     @Html.DropDownListFor(model => model.LocationId, (SelectList)ViewBag.Locations, "Select Location")

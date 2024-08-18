@@ -1,43 +1,83 @@
 # Wag Wander
 
-Welcome to "Wag Wander," an innovative platform that combines pet adoption, local exploration, and media tracking into a unified user experience. LifeExplorer allows users to adopt pets, discover pet-friendly local spots, and track media related to their interests, all within a single, cohesive application.
+**Wag Wander** is an integrated platform designed to enhance user engagement in three core areas: Pet Adoption, Local Exploration, and Media Tracking. The platform provides a unified experience for users interested in adopting pets, discovering pet-friendly local spots, and tracking media related to their interests.
 
+## Table of Contents
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Database Schema](#database-schema)
+- [APIs](#apis)
+- [Contributors](#contributors)
 
-## Concept and Vision
+## Features
 
-The vision behind Wag Wander is to create an interconnected ecosystem that enhances the user's lifestyle by integrating three core areas:
+### Pet Adoption (PawCare)
+- Browse and adopt pets from various shelters.
+- Manage adoption inquiries and ratings.
+- Seamless integration with local pet-friendly places.
 
-1. Pet Adoption (Pawcare): Users can browse and adopt pets, manage inquiries, and rate their experiences.
-2. Local Exploration (Local Guide App): Users can explore local attractions, restaurants, events, and services, with a special focus on pet-friendly locations.
-3. Media Tracking (Fantasy Forge): Users can track their favorite TV shows, movies, and games, with recommendations tailored to their interests and local culture.
+### Local Exploration (Local Guide)
+- Discover and explore pet-friendly parks, cafes, and events.
+- Location-based filtering for user convenience.
+- Integrated with the adoption feature to suggest nearby pet-friendly spots.
 
+### Media Tracking (Fantasy Forge)
+- Track TV shows, movies, and games based on user interests.
+- Recommendations tailored to local culture and user preferences.
+- Media tracking integrated with pet-related content.
 
-## User Journey:
+## Technology Stack
 
-1. Profile Setup: A user creates a profile on LifeExplorer and selects interests in pet adoption, local exploration, and media tracking.
-2. Adopting a Pet: The user browses pets available for adoption on Pawcare and sends an inquiry about a pet.
-3. Exploring Local Spots: The user checks out local pet-friendly parks and cafes from the Local Guide App.
-4. Tracking Media: The user tracks media items related to pet care and local culture on Fantasy Forge.
-5. Integrated Experience: The user’s profile shows pet-friendly locations, pet-related media suggestions, and local media recommendations, creating a rich, interconnected experience.
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js, Express.js, C#
+- **Database**: MongoDB
+- **APIs**: 
+  - Google Maps API for location data.
+  - TMDB API for media content.
 
+## Installation
 
-## Admin Features
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/bhargav1997/WagWander.git
+   
+2. Install dependencies:
+   ```bash
+   npm install
 
-- Add, Update, and Delete: Admins can manage pets, locations, and media items.
-- Manage Associations: Admins can link pets to locations and media items, ensuring data integrity and relevance.
+3. Set up environment variables:
+   - `MONGODB_URI`: MongoDB connection string.
+   - `GOOGLE_MAPS_API_KEY`: API key for Google Maps.
+   - `TMDB_API_KEY`: API key for The Movie Database (TMDB)
+4. Start the application:
+   ```bash
+   npm start
+
+## Usage
+- **Pet Adoption:** Browse available pets and initiate adoption inquiries.
+- **Local Guide:** Explore nearby pet-friendly locations using the integrated map.
+- **Media Tracking:** Keep track of media related to your interests, with suggestions based on local culture.
+
+## Database Schema
+- **Users:** Stores user information and preferences.
+- **Pets:** Details of pets available for adoption.
+- **Locations:** Information about pet-friendly locations.
+- **Media:** Data about TV shows, movies, and games.
 
 ## ER Diagram
-
 ![Wire Frame Image Here](./demo/wireframe.png)
 
-### Contributions to "Wag Wander"
+## APIs
+- **Google Maps API:** Retrieves data for local exploration.
+- **TMDB API:** Fetches media content for tracking.
+  
+## Contributors
+- **Bhargav Suthar:** Local Guide (Local Guide Integration)
+- **Disha Kolapate:** Pet Adoption Features (PawCare Integration)
+- **Vaibhav Baria:** Media Tracking (Fantasy Forge Integration)
 
-**Location:** Bhargav Suthar  
-**Contribution:** Developed the integration of the Local Guide App within Wag Wander, enabling users to seamlessly explore local attractions, restaurants, events, and services. Ensured that pet-friendly locations are highlighted and easily discoverable, enhancing the overall user experience. Focused on creating a smooth interface for users to find and enjoy local spots that accommodate their pets.
 
-**Paw Care:** Disha  
-**Contribution:** Integrated PawCare's pet adoption features into Wag Wander. Users can browse and adopt pets, manage inquiries, and provide ratings within the Wag Wander ecosystem. Ensured a user-friendly experience for pet adoption, including streamlined processes for inquiry management and pet ratings.
 
-**Fantasy Forge:** Vaibhav Baria  
-**Contribution:** Added Fantasy Forge’s media tracking capabilities to Wag Wander, allowing users to track their favorite TV shows, movies, and games. Implemented personalized recommendations based on user interests and local culture, enriching the media tracking experience within the unified platform.
 

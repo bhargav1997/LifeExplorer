@@ -8,7 +8,6 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Database Schema](#database-schema)
-- [APIs](#apis)
 - [Contributors](#contributors)
 
 ## Features
@@ -30,12 +29,9 @@
 
 ## Technology Stack
 
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Node.js, Express.js, C#
-- **Database**: MongoDB
-- **APIs**: 
-  - Google Maps API for location data.
-  - TMDB API for media content.
+- **Frontend**: HTML, CSS, JavaScript, Bootstrap.
+- **Backend**: C#
+- **Database**: MySQL.
 
 ## Installation
 
@@ -43,17 +39,6 @@
    ```bash
    git clone https://github.com/bhargav1997/WagWander.git
    
-2. Install dependencies:
-   ```bash
-   npm install
-
-3. Set up environment variables:
-   - `MONGODB_URI`: MongoDB connection string.
-   - `GOOGLE_MAPS_API_KEY`: API key for Google Maps.
-   - `TMDB_API_KEY`: API key for The Movie Database (TMDB)
-4. Start the application:
-   ```bash
-   npm start
 
 ## Usage
 - **Pet Adoption:** Browse available pets and initiate adoption inquiries.
@@ -69,10 +54,7 @@
 ## ER Diagram
 ![Wire Frame Image Here](./demo/wireframe.png)
 
-## APIs
-- **Google Maps API:** Retrieves data for local exploration.
-- **TMDB API:** Fetches media content for tracking.
-  
+
 ## Contributors
 - **Bhargav Suthar:** Local Guide (Local Guide Integration)
 - **Disha Kolapate:** Pet Adoption Features (PawCare Integration)
